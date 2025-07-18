@@ -21,5 +21,22 @@ RSpec.describe Article, type: :model do
       article = build(:article, body: nil)
       expect(article).not_to be_valid
     end
+
+    it "Article's title and subtitle should not exceed 90 characters length" do
+      article = build(:article, title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut cum culpa perferendis qui exercitationem', subtitle: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut cum culpa perferendis qui exercitationem')
+      expect(article).not_to be_valid
+    end
+
+    it "Article's body should not exceed 1_500 characters in length" do 
+      article = build(:article)
+      expect(article).not_to be_valid
+    end
+
+    it "Article's author should contain at least 2 characters in length" do
+      article = build(:article, author: "Y")
+      expect(article).not_to be_valid
+    end
+
   end
 end
+
