@@ -3,7 +3,7 @@ FactoryBot.define do
     title { "How to create a new article from scratch" }
     subtitle { "How to conquer your fear and start writing" }
     author { "Carla Valdivia" }
-    category { "DIY" }
+    category { %w(tech career challenge tutorial hackathon).sample }
 
     trait :long_title do 
       title { "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut cum culpa perferendis qui exercitationem" }
@@ -46,6 +46,30 @@ FactoryBot.define do
       Understandably, not everyone likes to scribble down ideas as they come. But if you plan to elevate your writing skills, you need to make a list of ideas continuously.
       This helps give direction when writing. As a writer, waves of ideas flood the mind when they are least expected. To help keep these ideas at bay, you can keep a notepad handy.
       You should see this as a draft for your intending articles. These ideas will express as an outline of your content. And looking at the ideas you noted down gives you a clearer vision of the article you need to create." }
+    end
+
+    trait :tech do 
+      category { "tech"}
+    end
+
+    trait :career do 
+      category { "career" }
+    end
+
+    trait :challenge do 
+      category { "challenge" }
+    end
+
+    trait :tutorial do 
+      category { "tutorial" }
+    end
+
+    trait :hackathon do
+      category { "hackathon" }
+    end
+
+    trait :invalid_category do 
+      category { "drama" }
     end
   end
 end
