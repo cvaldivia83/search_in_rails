@@ -47,6 +47,10 @@ RSpec.describe Article, type: :model do
       expect(article).to be_valid
     end
 
+    it "Article is invalid if the category does not have the right value" do 
+      article = build(:article, :invalid_category)
+      expect(article).not_to be_valid
+    end
   end
 end
 
