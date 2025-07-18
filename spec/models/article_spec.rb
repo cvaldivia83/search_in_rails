@@ -7,17 +7,17 @@ RSpec.describe Article, type: :model do
       expect(article).to be_valid
     end
     
-    it "is not valid without a title" do 
+    it "Article is not valid without a title" do 
       article = build(:article, title: nil)
       expect(article).not_to be_valid
     end
 
-    it "is not valid without an author" do
+    it "Article is not valid without an author" do
       article = build(:article, author: nil)
-      expect(article).not_to _be_valid
+      expect(article).not_to be_valid
     end
 
-    it "is not valid without a body" do 
+    it "Article is not valid without a body" do 
       article = build(:article, body: nil)
       expect(article).not_to be_valid
     end
