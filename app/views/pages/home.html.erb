@@ -1,1 +1,9 @@
-<h1>Hello world!</h1>
+<div class="container">
+
+  <h1 class="font-roboto">Looking for something?</h1>
+  <%= form_with url: "/", method: :get do |form| %>
+    <%= form.label :query, "Search for something...:" %>
+    <%= form.search_field :query %>
+  <% end %>
+
+</div>
