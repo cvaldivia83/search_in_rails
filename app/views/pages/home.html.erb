@@ -9,7 +9,16 @@
   </div>
 
   <div class="search-results">
-
+   <ul class="list">
+    <% @search_items.each do |item| %>
+      <li>
+        <%= item.query %>
+        <%= item.user_ip %>
+      </li>
+    <% end %>
+      
+    
+   </ul>
   </div>
 
 </div>
