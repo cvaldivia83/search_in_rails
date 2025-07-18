@@ -1,9 +1,15 @@
-<div class="container">
+<div class=" bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 flex flex-col items-center justify-between min-h-screen">
 
-  <h1 class="font-roboto">Looking for something?</h1>
-  <%= form_with url: "/", method: :get do |form| %>
-    <%= form.label :query, "Search for something...:" %>
-    <%= form.search_field :query %>
-  <% end %>
+  <div class="search-bar">
+    <h1 class="font-extrabold text-center text-7xl my-12 text-slate-800">Articles in Rails</h1>
+    <%= form_with url: "/", method: :get do |form| %>
+     
+      <%= form.search_field :query, placeholder: 'Search an article', class: 'border-2 border-solid rounded p-2 text-lg border-slate-400 w-full text-slate-800 outline-slate-950' %>
+    <% end %>
+  </div>
+
+  <div class="search-results">
+
+  </div>
 
 </div>
