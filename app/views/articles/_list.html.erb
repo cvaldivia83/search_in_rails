@@ -1,13 +1,11 @@
-<div class="search-results my-2" data-search-target="list">
+<div class="search-results my-2 " data-search-target="list">
   <% if articles.empty? %>
     <p class="text-lg text-slate-800">There are no searches available in our DB yet</p>
   <% else %>
-    <ul class="list">
+    <div class="list grid grid-cols-2 gap-4">
       <% articles.each do |article| %>
-        <li class="my-1">
-          <%= render 'articles/article', article: article %>
-        </li>
+        <%= render 'articles/article', article: article %>
       <% end %>
-    </ul>
+    </div>
   <% end %>
 </div>

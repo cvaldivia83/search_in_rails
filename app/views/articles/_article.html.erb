@@ -1,6 +1,11 @@
-<div class="bg-white px-6 py-px w-full rounded">
-  <div class="query my-2 md:flex md:justify-between md:items-center">
-    <small class="font-bold bg-indigo-200 text-indigo-800 rounded p-1">IP adress: <%= article.title  %></small>
-    <p class="text-base"><%= article.category %></p>
+<div class="bg-white px-4 py-1 w-full rounded">
+  <div class="query my-2">
+    <div class="flex justify-end py-1 mb-4">
+      <small class="font-bold <%= render_category(article.category) %> rounded p-1"><%= article.category %></small>
+    </div>
+    <p class="text-base font-extrabold text-slate-800"><%= article.title %></p>
+    <p class="text-sm font-semibold text-slate-800"><%= article.subtitle %></p>
+    <p class="text-xs font-light text-slate-800">By <%= article.author %></p>
+    <p class="text-sm line-clamp-3 text-base text-slate-800 mt-5"><%= article.body %></p>
   </div>
 </div>

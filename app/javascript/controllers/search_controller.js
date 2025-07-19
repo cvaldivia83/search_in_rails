@@ -3,10 +3,14 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="search"
 export default class extends Controller {
   static targets = [ "form", "input", "list" ]
+  static values = {
+    url: String
+  }
 
   connect() {
     this.averageSpeed = 1500;
-    this.handleSearch = this.debounce(this.handleSearch.bind(this), this.averageSpeed)
+    this.handleSearch = this.debounce(this.handleSearch.bind(this), this.averageSpeed);
+    this.itemSearch = this.debounce(this.itemSearch.bind(this), this.averageSpeed);
   }
 
   typing_speed() {
@@ -46,5 +50,26 @@ export default class extends Controller {
     .then((data) => {
       this.listTarget.outerHTML = data;
     })
+  }
+
+  get csrfToken() {
+    return document.querySelector("meta[name='csrf-token']").content;
+  }
+
+  itemSearch() {
+    if (this.inputTarget.value.length > 1) {
+      const url = this.urlValue;
+
+      const options = {
+        method: 'POST', 
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": this.csrfToken
+        }, 
+        body: JSON.stringify({ query: this.inputTarget.value })
+      }
+
+      fetch(url, options)
+    }
   }
 }

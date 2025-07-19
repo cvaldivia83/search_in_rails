@@ -39,6 +39,10 @@ gem 'rack-attack'
 # Search engine
 gem 'pg_search'
 
+# Background Jobs configuration
+gem 'sidekiq', '~> 7.2'
+gem 'redis'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"

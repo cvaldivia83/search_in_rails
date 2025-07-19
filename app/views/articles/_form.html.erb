@@ -1,10 +1,10 @@
 <%= form_with url: root_path, method: :get, html: { class:
   'mb-4', data: { search_target: 'form' } } do |f| %>
   <%= f.text_field :query,
-    class: "'border-2 border-solid rounded p-2 text-lg border-slate-400 w-full text-slate-800 outline-slate-950",
+    class: "border-2 border-solid rounded p-2 text-lg border-slate-400 w-full text-slate-800 outline-slate-950",
     placeholder: 'Search for an article...',
     value: params[:query],
     data: { search_target: 'input',
-    action: 'keyup->search#handleSearch' } 
+    action: 'keyup->search#handleSearch input->search#itemSearch' } 
   %>
 <% end%>
