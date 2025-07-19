@@ -1,10 +1,10 @@
 class SearchItemJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
+  def perform(query, user_ip)
     SearchItem.create!(
-      query: args[0],
-      user_ip: args[1]
+      query: query,
+      user_ip: user_ip
     )
   end
 end

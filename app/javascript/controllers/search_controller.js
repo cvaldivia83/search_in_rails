@@ -3,11 +3,14 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="search"
 export default class extends Controller {
   static targets = [ "form", "input", "list" ]
+  static values = {
+    url: String
+  }
 
   connect() {
     this.averageSpeed = 1500;
-    this.handleSearch = this.debounce(this.handleSearch.bind(this), this.averageSpeed)
-    this.logSearch = this.debounce(this.logSearch.bind(this), this.averageSpeed)
+    this.handleSearch = this.debounce(this.handleSearch.bind(this), this.averageSpeed);
+    this.itemSearch = this.debounce(this.itemSearch.bind(this), this.averageSpeed);
   }
 
   typing_speed() {
@@ -49,21 +52,30 @@ export default class extends Controller {
     })
   }
 
-  log() {
-    const query = this.inputTarget.value;
-    if (query.length > 1) {
-      this.logSearch(query);
-    }
+  get csrfToken() {
+    return document.querySelector("meta[name='csrf-token']").content;
   }
 
-  logSearch(query) {
-    fetch("/search_items", {
-      method: 'POST', 
-      headers: { 
-        "Content_Type": "application/json",
-        "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").content
-      },
-      body: JSON.stringify({query: query})
-    })
+  itemSearch() {
+    if (this.inputTarget.value.length > 1) {
+      const url = this.urlValue;
+
+      const options = {
+        method: 'POST', 
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": this.csrfToken
+        }, 
+        body: JSON.stringify({ query: this.inputTarget.value })
+      }
+
+      fetch(url, options)
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data)
+      })
+
+     
+    }
   }
 }
