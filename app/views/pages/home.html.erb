@@ -1,24 +1,22 @@
-<div class=" bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 flex flex-col items-center justify-between min-h-screen">
+<div class=" bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 flex flex-col items-center justify-around min-h-screen" data-controller="search">
 
   <div class="search-bar">
     <h1 class="font-extrabold text-center text-7xl my-12 text-slate-800">Articles in Rails</h1>
-    <%= form_with url: "/", method: :get do |form| %>
-     
-      <%= form.search_field :query, placeholder: 'Search an article', class: 'border-2 border-solid rounded p-2 text-lg border-slate-400 w-full text-slate-800 outline-slate-950' %>
-    <% end %>
+    <%= render "search_items/form", search_item: @search_item, ip: @ip %>
   </div>
 
-  <div class="search-results">
-   <ul class="list">
-    <% @search_items.each do |item| %>
-      <li>
-        <%= item.query %>
-        <%= item.user_ip %>
-      </li>
+  <div class="search-results" data-search-target="list">
+    <% if @search_items.empty? %>
+      <p class="text-lg text-slate-800">There are no searches available in our DB yet</p>
+    <% else %>
+      <ul class="list">
+        <% @search_items.each do |item| %>
+          <li>
+            <%= render 'search_items/search_item', search_item: item %>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
-      
-    
-   </ul>
   </div>
 
 </div>
