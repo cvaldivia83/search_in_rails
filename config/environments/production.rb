@@ -100,7 +100,7 @@ Rails.application.configure do
   config.active_job.queue_adapter = :sidekiq
 
   config.cache_store = :redis_cache_store, {
-    url: ENV['REDISGREEN_URL'],
+    url: ENV['REDISGREEN_URL'] || ENV['REDIS_URL'],
     namespace: 'cache',
     expires_in: 1.hour,
     reconnect_attemps: 1
