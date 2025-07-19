@@ -8,5 +8,3 @@ class SearchItemJob < ApplicationJob
     )
   end
 end
-
-{query: "o que será que será", user_ip: "192.23.346.43"}
