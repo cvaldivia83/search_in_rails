@@ -103,7 +103,7 @@ Rails.application.configure do
     url: ENV['REDISGREEN_URL'] || ENV['REDIS_URL'],
     namespace: 'cache',
     expires_in: 1.hour,
-    reconnect_attemps: 1
+    reconnect_attempts: 1
   }
 
 end
