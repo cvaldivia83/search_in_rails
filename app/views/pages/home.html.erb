@@ -1,1 +1,24 @@
-<h1>Hello world!</h1>
+<div class=" bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 flex flex-col items-center justify-start min-h-screen" data-controller="search">
+
+  <div class="search-bar md:w-2/3 w-5/6 mt-12">
+    <h1 class="font-extrabold text-center md:text-7xl text-4xl my-12 text-slate-800">Articles in Rails</h1>
+    <%= render "search_items/form", search_item: @search_item, ip: @ip %>
+
+    <div class="search-results my-2" data-search-target="list">
+      <% if @search_items.empty? %>
+        <p class="text-lg text-slate-800" data-search-target="emptySearch">There are no searches available in our DB yet</p>
+      <% else %>
+        <ul class="list">
+          <% @search_items.each do |item| %>
+            <li class="my-1">
+              <%= render 'search_items/search_item', search_item: item %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
+ 
+
+</div>
