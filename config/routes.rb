@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#home'
-  get 'data', to: 'pages#data'
+  root 'articles#index'
   resources :search_items, only: [:create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
