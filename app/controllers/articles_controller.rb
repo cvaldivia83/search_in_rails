@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 
   def index
+    @user_ip = request.remote_ip
     @articles = Article.all
     
     if params[:query].present?
