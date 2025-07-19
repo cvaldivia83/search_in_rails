@@ -33,6 +33,9 @@ gem "simple_form"
 # Ostruct gem to silence terminal warnings
 gem "ostruct"
 
+# Rack:attack to limit and surveil amount of requests
+gem 'rack-attack'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"

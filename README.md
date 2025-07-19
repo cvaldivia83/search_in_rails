@@ -1,2 +1,3 @@
 # Rais Article Search Engine
 
+In the context of a Rails application, "rack attack throttle" refers to the practice of limiting the number of requests a user or client can make to a specific endpoint or resource within a given time frame, using the Rack::Attack gem. This helps prevent abuse, like denial-of-service attacks, and ensures the application's stability and performance. Limited to a 100 requests per minute per ip.
