@@ -1,8 +1,17 @@
-<%= simple_form_for (search_item), data: { search_target: "form" } do |f| %>
-   <%= f.input :query, 
+<%#= simple_form_for (search_item), data: { search_target: "form" } do |f| %>
+   <%#= f.input :query, 
     placeholder: "Search for an article...", 
     input_html: { data: { search_target: 'queryInput', action: 'input->search#handleInput' }, class: 'border-2 border-solid rounded p-2 text-lg border-slate-400 w-full text-slate-800 outline-slate-950' }, 
     label: false
    %>
-   <%= f.input :user_ip, :as => :hidden, input_html: { value: @ip }, data: { search_target: 'ipInput' } %>
-<% end %>
+   <%#= f.input :user_ip, :as => :hidden, input_html: { value: @ip }, data: { search_target: 'ipInput' } %>
+<%# end %>
+
+<%= form_with url: root_path, method: :get, html: { class:
+    'mb-4', data: { search_movies_target: 'form' } } do |f| %>
+    <%= f.text_field :query,
+     class: "'border-2 border-solid rounded p-2 text-lg border-slate-400 w-full text-slate-800 outline-slate-950",
+     placeholder: 'Search for an article...',
+     value: params[:query],
+     data: { search_movies_target: 'input' } %>
+<% end%>

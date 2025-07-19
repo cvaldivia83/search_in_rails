@@ -36,6 +36,9 @@ gem "ostruct"
 # Rack:attack to limit and surveil amount of requests
 gem 'rack-attack'
 
+# Search engine
+gem 'pg_search'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
@@ -67,6 +70,8 @@ group :development, :test do
   
   #factory bot to create objects
   gem 'factory_bot_rails'
+
+  gem 'rails-controller-testing'
 end
 
 group :development do
