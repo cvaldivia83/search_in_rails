@@ -1,0 +1,24 @@
+<div class="w-full p-12">
+  <h1 class="text-center font-semibold text-2xl">Search Logs Rails Articles</h1>
+
+  <table class="table-auto mx-auto mt-12 md:w-2/3 w-full">
+    <thead class="mb-6 border-b-2 border-slate-400">
+      <tr>
+        <th class="p-2 text-slate-500 font-semibold text-base text-left">Query Logs</th>
+        <th class="p-2 text-slate-500 font-semibold text-base text-left">IP address</th>
+        <th class="p-2 text-slate-500 font-semibold text-base text-left">Created_at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @search_items.each do |item| %>
+        <tr>
+          <td class="p-2 text-left text-slate-700 text-sm"><%= item.query %></td>
+          <td class="p-2 text-left text-slate-700 text-sm"><%= item.user_ip %></td>
+          <td class="p-2 text-left text-slate-700 text-sm"><%= item.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
