@@ -62,6 +62,10 @@ This way I can create a better performance since a background job main goal is t
 
 I also create a cleaner separation of concerns: the controller just handles the user request and the background job handles search logging.
 
+3. Rails Cache
+
+To ensure performance this app caches the most common queries. 
+
 ## Search Articles
 
 To access the root page where the search articles happens, type into your browser: 
