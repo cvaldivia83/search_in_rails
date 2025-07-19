@@ -7,6 +7,7 @@ export default class extends Controller {
   connect() {
     this.averageSpeed = 1500;
     this.handleSearch = this.debounce(this.handleSearch.bind(this), this.averageSpeed)
+    this.logSearch = this.debounce(this.logSearch.bind(this), this.averageSpeed)
   }
 
   typing_speed() {
@@ -45,6 +46,24 @@ export default class extends Controller {
     .then(response => response.text())
     .then((data) => {
       this.listTarget.outerHTML = data;
+    })
+  }
+
+  log() {
+    const query = this.inputTarget.value;
+    if (query.length > 1) {
+      this.logSearch(query);
+    }
+  }
+
+  logSearch(query) {
+    fetch("/search_items", {
+      method: 'POST', 
+      headers: { 
+        "Content_Type": "application/json",
+        "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").content
+      },
+      body: JSON.stringify({query: query})
     })
   }
 }
