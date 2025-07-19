@@ -1,8 +1,3 @@
-<%# <%= form_with url: "/search_items", method: :get, data: { search_target: 'form' } do |form| %>
-  <%#= form.hidden_field :user_ip, value: ip, data: { search_target: 'ipInput' } %>
-  <%#= form.search_field :query, data: { search_target: 'queryInput', action: 'input->search#handleInput' } ,placeholder: 'Search an article', class: 'border-2 border-solid rounded p-2 text-lg border-slate-400 w-full text-slate-800 outline-slate-950' %>
-<%# end %>
-
 <%= simple_form_for (search_item), data: { search_target: "form" } do |f| %>
    <%= f.input :query, 
     placeholder: "Search for an article...", 
