@@ -30,6 +30,9 @@ gem "jbuilder"
 # Generate forms in rails
 gem "simple_form"
 
+# Ostruct gem to silence terminal warnings
+gem "ostruct"
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
