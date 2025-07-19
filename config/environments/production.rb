@@ -66,6 +66,9 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
+  
+  config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] || "redis://localhost:6379/1" }
+
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter = :resque
@@ -95,5 +98,12 @@ Rails.application.configure do
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.active_job.queue_adapter = :sidekiq
+
+  config.cache_store = :redis_cache_store, {
+    url: ENV['REDISGREEN_URL'],
+    namespace: 'cache',
+    expires_in: 1.hour,
+    reconnect_attemps: 1
+  }
 
 end
