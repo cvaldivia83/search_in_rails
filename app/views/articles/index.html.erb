@@ -1,0 +1,9 @@
+<div class=" bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 flex flex-col items-center justify-start min-h-screen" data-controller="search">
+
+  <div class="search-bar md:w-2/3 w-5/6 mt-12">
+    <h1 class="font-extrabold text-center md:text-7xl text-4xl my-12 text-slate-800">Articles in Rails</h1>
+    <%= render "articles/form"  %>
+
+    <%= render "articles/list", articles: @articles %>
+  </div>
+</div>
