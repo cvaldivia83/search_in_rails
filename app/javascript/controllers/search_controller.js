@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="search"
 export default class extends Controller {
-  static targets = [ "form", "ipInput", "queryInput", "list" ]
+  static targets = [ "form", "ipInput", "queryInput", "list", "emptySearch" ]
   connect() {
     this.handleInput = this.debounce(this.handleInput.bind(this), 1000);
   }
@@ -32,7 +32,8 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         if (data.inserted_item) {
-          this.listTarget.insertAdjacentHTML("afterbegin", data.inserted_item);
+          this.emptySearch.innerText = "Search Results";
+          this.listTarget.insertAdjacentHTML("beforeend", data.inserted_item);
         }
         this.formTarget.outerHTML = data.form;
       })

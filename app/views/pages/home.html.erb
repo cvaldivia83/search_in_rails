@@ -7,7 +7,7 @@
 
   <div class="search-results" data-search-target="list">
     <% if @search_items.empty? %>
-      <p class="text-lg text-slate-800">There are no searches available in our DB yet</p>
+      <p class="text-lg text-slate-800" data-search-target="emptySearch">There are no searches available in our DB yet</p>
     <% else %>
       <ul class="list">
         <% @search_items.each do |item| %>
