@@ -43,6 +43,9 @@ gem 'pg_search'
 gem 'sidekiq', '~> 7.2'
 gem 'redis'
 
+# Faker gem to seed Articles
+gem 'faker'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
@@ -68,9 +71,6 @@ group :development, :test do
 
   # RSpec TDD gem
   gem 'rspec-rails'
-
-  #faker gem to seed articles
-  gem 'faker'
   
   #factory bot to create objects
   gem 'factory_bot_rails'
