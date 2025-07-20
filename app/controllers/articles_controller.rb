@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
 
   def search_results(query)
     Rails.cache.fetch("search:#{query.downcase.strip}", expires_in: 15.minutes) do
+      # Test if cache is working 
       Rails.logger.debug "Cache MISS for query: #{query}"
       Article.search_articles(query).to_a 
     end 
